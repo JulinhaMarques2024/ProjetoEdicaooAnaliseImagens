@@ -1,0 +1,54 @@
+# Bytecode Python
+_pycache_/
+*.py[cod]
+*$py.class
+
+# Ambientes virtuais
+venv/
+.env/
+.env.bak/
+.envrc
+venv.bak/
+
+# Arquivos de configuração locais
+*.env
+*.local
+
+# Logs
+*.log
+
+# Dados temporários
+*.bak
+*.swp
+*.tmp
+
+# Arquivos de IDE/Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# MacOS e Linux
+.DS_Store
+Thumbs.db
+
+# Arquivos de build
+build/
+dist/
+*.egg-info/
+
+# Pipenv
+Pipfile.lock
+
+# Arquivos específicos OpenCV (se gerar imagens temporárias ou outputs pesados)
+output/
+results/
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.tiff
+*.tif
