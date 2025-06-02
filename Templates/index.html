@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editor de Imagens</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #333333;
+            text-align: center;
+        }
+
+        label {
+            font-size: 16px;
+            color: #555555;
+            display: block;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #dddddd;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="file"]:hover,
+        select:hover {
+            border-color: #ee9ca7;
+        }
+
+        input[type="submit"] {
+            background-color: #ee9ca7;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff758c;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+        <h1>Editor de Imagens - Escolha o Filtro</h1>
+        <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+            <label for="imagem">Selecione uma imagem:</label>
+            <input type="file" name="imagem" id="imagem" required>
+
+            <label for="filtro">Escolha um filtro:</label>
+            <select name="filtro" id="filtro" required>
+                <!-- Passa-baixa -->
+                <option value="media">Média</option>
+                <option value="gaussiano">Gaussiano</option>
+                <option value="mediana">Mediana</option>
+                <option value="maximo">Máximo</option>
+                <option value="minimo">Mínimo</option>
+
+                <!-- Passa-alta -->
+                <option value="laplaciano">Laplaciano</option>
+                <option value="roberts">Roberts</option>
+                <option value="prewitt">Prewitt</option>
+                <option value="sobel">Sobel</option>
+
+                <!-- Domínio da frequência -->
+                <option value="frequencia_pbaixa">Frequência - Passa-baixa</option>
+                <option value="frequencia_palta">Frequência - Passa-alta</option>
+            </select>
+
+            <input type="submit" value="Aplicar Filtro">
+        </form>
+    </div>
+</body>
+</html>
