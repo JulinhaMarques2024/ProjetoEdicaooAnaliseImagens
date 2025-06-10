@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Editor de Imagens</title>
+    <title>Upload de Imagem</title>
     <style>
         * {
             box-sizing: border-box;
@@ -33,19 +33,9 @@
             font-size: 28px;
             margin-bottom: 30px;
             color: #333333;
-            text-align: center;
         }
 
-        label {
-            font-size: 16px;
-            color: #555555;
-            display: block;
-            margin-bottom: 8px;
-            text-align: left;
-        }
-
-        input[type="file"],
-        select {
+        input[type="file"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
@@ -54,12 +44,11 @@
             transition: border-color 0.3s ease;
         }
 
-        input[type="file"]:hover,
-        select:hover {
+        input[type="file"]:hover {
             border-color: #ee9ca7;
         }
 
-        input[type="submit"] {
+        button {
             background-color: #ee9ca7;
             color: white;
             border: none;
@@ -70,7 +59,7 @@
             transition: 0.3s ease;
         }
 
-        input[type="submit"]:hover {
+        button:hover {
             background-color: #ff758c;
             transform: scale(1.05);
         }
@@ -86,36 +75,12 @@
         }
     </style>
 </head>
-
-
 <body>
     <div class="container">
-        <h1>Editor de Imagens - Escolha o Filtro</h1>
-        <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
-            <label for="imagem">Selecione uma imagem:</label>
-            <input type="file" name="imagem" id="imagem" required>
-
-            <label for="filtro">Escolha um filtro:</label>
-            <select name="filtro" id="filtro" required>
-                <!-- Passa-baixa -->
-                <option value="media">Média</option>
-                <option value="gaussiano">Gaussiano</option>
-                <option value="mediana">Mediana</option>
-                <option value="maximo">Máximo</option>
-                <option value="minimo">Mínimo</option>
-
-                <!-- Passa-alta -->
-                <option value="laplaciano">Laplaciano</option>
-                <option value="roberts">Roberts</option>
-                <option value="prewitt">Prewitt</option>
-                <option value="sobel">Sobel</option>
-
-                <!-- Domínio da frequência -->
-                <option value="frequencia_pbaixa">Frequência - Passa-baixa</option>
-                <option value="frequencia_palta">Frequência - Passa-alta</option>
-            </select>
-
-            <input type="submit" value="Aplicar Filtro">
+        <h1>Upload de Imagem</h1>
+        <form action="{{ url_for('carregar_imagem') }}" method="post" enctype="multipart/form-data">
+            <input type="file" name="imagem" accept="image/*" required>
+            <button type="submit">Enviar Imagem</button>
         </form>
     </div>
 </body>

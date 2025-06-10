@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Histograma da Imagem</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+        }
+
+        img {
+            max-width: 700px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .botoes {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        a {
+            text-decoration: none;
+            background-color: #ee9ca7;
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            background-color: #ff758c;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>Histograma da Imagem</h1>
+    
+    <img src="{{ url_for('static', filename=imagem_histograma) }}" alt="Histograma da imagem">
+
+    <div class="botoes">
+        <a href="{{ url_for('processar') }}">← Voltar ao Editor</a>
+        <a href="{{ url_for('upload_page') }}">Nova Imagem</a>
+    </div>
+</body>
+</html>

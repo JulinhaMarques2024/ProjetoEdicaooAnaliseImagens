@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editor de Imagem</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .imagens {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .imagem-box {
+            text-align: center;
+        }
+
+        .imagem-box img {
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 300px;
+            text-align: center;
+        }
+
+        select, button {
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        select:hover, button:hover {
+            border-color: #ee9ca7;
+        }
+
+        button {
+            background-color: #ee9ca7;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #ff758c;
+        }
+
+        .botoes-navegacao {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            background-color: #ee9ca7;
+            color: white;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        a:hover {
+            background-color: #ff758c;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>Editor de Imagem</h1>
+
+    <div class="imagens">
+        <div class="imagem-box">
+            <h3>Imagem Original</h3>
+            <img src="{{ url_for('uploaded_file', filename=imagem_nome) }}" alt="Imagem Original">
+        </div>
+        {% if imagem_processada %}
+        <div class="imagem-box">
+            <h3>Imagem Processada</h3>
+            <img src="{{ url_for('processed_file', filename=imagem_processada) }}" alt="Imagem Processada">
+        </div>
+        {% endif %}
+    </div>
+
+    <form action="{{ url_for('aplicar_filtro') }}" method="post">
+        <label for="filtro">Escolha um filtro:</label>
+        <select name="filtro" id="filtro" required>
+            <optgroup label="Passa-baixa">
+                <option value="media">Média</option>
+                <option value="gaussiano">Gaussiano</option>
+                <option value="mediana">Mediana</option>
+                <option value="maximo">Máximo</option>
+                <option value="minimo">Mínimo</option>
+            </optgroup>
+
+            <optgroup label="Passa-alta">
+                <option value="laplaciano">Laplaciano</option>
+                <option value="roberts">Roberts</option>
+                <option value="prewitt">Prewitt</option>
+                <option value="sobel">Sobel</option>
+            </optgroup>
+
+            <optgroup label="Frequência">
+                <option value="frequencia_pbaixa">Frequência - Passa-baixa</option>
+                <option value="frequencia_palta">Frequência - Passa-alta</option>
+            </optgroup>
+
+            <optgroup label="Morfologia / Segmentação">
+                <option value="otsu">Segmentação - Otsu</option>
+                <option value="erosao">Morfologia - Erosão</option>
+                <option value="dilatacao">Morfologia - Dilatação</option>
+            </optgroup>
+
+            <optgroup label="Transformações">
+                <option value="realce">Realce de Contraste</option>
+                <option value="equalizacao">Equalização de Histograma</option>
+            </optgroup>
+        </select>
+
+        <label for="base">Aplicar na imagem:</label>
+        <div style="display: flex; gap: 10px; justify-content: center;">
+            <button type="submit" name="base" value="original">Original</button>
+            <button type="submit" name="base" value="processada">Processada</button>
+        </div>
+    </form>
+
+    <div class="botoes-navegacao">
+        <a href="{{ url_for('histograma') }}">Ver Histograma</a>
+        <a href="{{ url_for('upload_page') }}">Nova Imagem</a>
+    </div>
+</body>
+</html>
