@@ -167,5 +167,10 @@ def uploaded_file(filename):
 def processed_file(filename):
     return send_from_directory(PROCESSING_FOLDER, filename)
 
+@app.route('/download/<filename>')
+def download_imagem_processada(filename):
+    return send_from_directory(PROCESSING_FOLDER, filename, as_attachment=True)
+
 if __name__ == '__main__':
     app.run(debug=True)
+

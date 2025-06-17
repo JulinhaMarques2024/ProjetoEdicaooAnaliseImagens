@@ -93,6 +93,22 @@
             background-color: #ff758c;
             transform: scale(1.05);
         }
+
+        .botao-download {
+            margin-top: 10px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ee9ca7;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        .botao-download:hover {
+            background-color: #ff758c;
+        }
+
     </style>
 </head>
 <body>
@@ -103,12 +119,18 @@
             <h3>Imagem Original</h3>
             <img src="{{ url_for('uploaded_file', filename=imagem_nome) }}" alt="Imagem Original">
         </div>
+    
         {% if imagem_processada %}
         <div class="imagem-box">
             <h3>Imagem Processada</h3>
             <img src="{{ url_for('processed_file', filename=imagem_processada) }}" alt="Imagem Processada">
+            <br><br>
+            <a href="{{ url_for('download_imagem_processada', filename=imagem_processada) }}" download class="botao-download">
+                 Baixar imagem processada
+            </a>
         </div>
         {% endif %}
+
     </div>
 
     <form action="{{ url_for('aplicar_filtro') }}" method="post">
