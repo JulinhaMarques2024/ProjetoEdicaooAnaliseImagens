@@ -122,11 +122,11 @@ http://localhost:5000
 
 ## Notas Técnicas
 
-* ✅ O backend é construído com **Flask**
-* ✅ O processamento de imagem é realizado com **OpenCV**
-* ✅ Os histogramas são gerados com **Matplotlib**
-* ✅ Todas as imagens são convertidas para **escala de cinza**
-* ✅ Aplicação otimizada com **redimensionamento automático** (máximo de 800px de largura)
+*  O backend é construído com **Flask**
+*  O processamento de imagem é realizado com **OpenCV**
+*  Os histogramas são gerados com **Matplotlib**
+*  Todas as imagens são convertidas para **escala de cinza**
+*  Aplicação otimizada com **redimensionamento automático** (máximo de 800px de largura)
 
 ---
 
