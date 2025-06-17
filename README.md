@@ -2,7 +2,7 @@ Projeto Edição Análise de Imagens
 
 Este projeto foi desenvolvido como atividade prática da disciplina SIN392 - Processamento Digital de Imagens da Universidade Federal de Viçosa (UFV), sob orientação da Profª Drª João Fernando Mari. 
 
-A aplicação permite o carregamento de imagens, aplicação de diversos filtros e transformações, operações morfológicas, segmentação com Otsu e visualização do histograma da imagem — tudo isso acessível por meio de uma interface web simples e funcional desenvolvida com Flask e OpenCV.
+A aplicação permite o carregamento de imagens, aplicação de diversos filtros e transformações, operações morfológicas, segmentação com Otsu e visualização do histograma da imagem, tudo isso acessível por meio de uma interface web simples e funcional desenvolvida com Flask e OpenCV.
 
 ---
 
@@ -120,7 +120,7 @@ http://localhost:5000
 
 ---
 
-## 📌 Notas Técnicas
+## Notas Técnicas
 
 * ✅ O backend é construído com **Flask**
 * ✅ O processamento de imagem é realizado com **OpenCV**
