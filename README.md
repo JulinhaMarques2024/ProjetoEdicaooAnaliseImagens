@@ -5,6 +5,12 @@ Este projeto foi desenvolvido como atividade prática da disciplina SIN392 - Pro
 A aplicação permite o carregamento de imagens, aplicação de diversos filtros e transformações, operações morfológicas, segmentação com Otsu e visualização do histograma da imagem, tudo isso acessível por meio de uma interface web simples e funcional desenvolvida com Flask e OpenCV.
 
 ---
+##  Vídeo de Apresentação do Projeto
+
+```bash
+(https://www.youtube.com/watch?v=bqKeRFi6LBQ)
+````
+---
 
 ##  Funcionalidades
 
