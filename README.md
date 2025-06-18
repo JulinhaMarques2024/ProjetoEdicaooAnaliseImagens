@@ -8,7 +8,7 @@ A aplicação permite o carregamento de imagens, aplicação de diversos filtros
 ##  Vídeo de Apresentação do Projeto
 
 ```bash
-(https://www.youtube.com/watch?v=bqKeRFi6LBQ)
+[(https://www.youtube.com/watch?v=bqKeRFi6LBQ)]
 ````
 ---
 
